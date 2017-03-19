@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  footballstatisticsmanager:
+    image: footballstatisticsmanager
+    build:
+      context: ./FootballStatisticsManager
+      dockerfile: Dockerfile

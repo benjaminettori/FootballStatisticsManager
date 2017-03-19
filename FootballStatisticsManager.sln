@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStatisticsManager", "FootballStatisticsManager\FootballStatisticsManager.csproj", "{62F6F919-88AE-4335-8EA1-C66ABB8B0BEB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C99AB37F-36FC-49AE-8D09-D48611323106}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62F6F919-88AE-4335-8EA1-C66ABB8B0BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F6F919-88AE-4335-8EA1-C66ABB8B0BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F6F919-88AE-4335-8EA1-C66ABB8B0BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F6F919-88AE-4335-8EA1-C66ABB8B0BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C99AB37F-36FC-49AE-8D09-D48611323106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99AB37F-36FC-49AE-8D09-D48611323106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99AB37F-36FC-49AE-8D09-D48611323106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99AB37F-36FC-49AE-8D09-D48611323106}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
