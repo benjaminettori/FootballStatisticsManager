@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
+    [Table("Season")]
     public class Season : BaseObject
     {       
         public DateTime StartDate { get; set; }

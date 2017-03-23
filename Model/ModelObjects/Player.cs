@@ -1,8 +1,11 @@
 ﻿using FSM.Model.Enums;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
+    [Table("Player")]
     public class Player : BaseObject
     {
         public string FirstName { get; set; }
@@ -14,5 +17,8 @@ namespace FSM.Model.ModelObjects
         public int Weight { get; set; }
         public FootRating RightFootRating { get; set; }
         public FootRating LeftFootRating { get; set; }
+
+        // Navigation properties
+        public ICollection<PlayerContract> Contracts { get; set; }
     }
 }

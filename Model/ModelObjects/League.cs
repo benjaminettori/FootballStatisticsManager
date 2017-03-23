@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
+    [Table("League")]
     public class League : BaseObject
     {        
         public string Name { get; set; }

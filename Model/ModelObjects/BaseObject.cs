@@ -11,5 +11,8 @@ namespace FSM.Model.ModelObjects
         public Guid UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
+
+        public DateTime Created { get; set; }
+        public DateTime LastUpdated { get; set; }
     }
 }

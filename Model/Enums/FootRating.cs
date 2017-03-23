@@ -6,10 +6,10 @@ namespace FSM.Model.Enums
 {
     public enum FootRating
     {
-        VeryWeak,
-        Weak,
-        Medium,
-        Strong,
-        VeryStrong
+        VeryWeak = 0,
+        Weak = 1,
+        Reasonable = 2,
+        Strong = 3,
+        VeryStrong = 4
     }
 }
