@@ -29,7 +29,7 @@ namespace FootballStatisticsManager
             services.AddMvc();
 
             var connection = Configuration.GetConnectionString("StatisticsDatabase");
-            services.AddDbContext<FsmContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<FsmContext>(options => options.UseSqlServer(connection));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,7 +37,7 @@ namespace FootballStatisticsManager
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            FsmContextInitializer.Seed(app);
             app.UseMvc();
         }
     }

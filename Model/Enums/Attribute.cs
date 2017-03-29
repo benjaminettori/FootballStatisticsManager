@@ -1,6 +1,6 @@
 ﻿namespace FSM.Model.Enums
 {
-    // Can use GetName method to get name, and then parse camel case
+    //Can use GetName method to get name, and then parse camel case    
     public enum Attribute
     {
         // Mental

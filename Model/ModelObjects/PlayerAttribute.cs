@@ -8,7 +8,7 @@ namespace FSM.Model.ModelObjects
         public string AttributeName { get; set; }
         public string AttributeCode { get; set; }
         public DateTime OnDate { get; set; }
-        public Attribute Attribute { get; set; }
+        public FSM.Model.Enums.Attribute Attribute { get; set; }
         public bool Current { get; set; }
         public int Rating { get; set; }
 

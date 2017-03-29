@@ -13,7 +13,8 @@ namespace FSM.Model.ModelObjects
         public DateTime EndDate { get; set; }
         public bool Active { get; set; }
         public ContractType Type { get; set; }
-        public Money Salary { get; set; }
+        public decimal Amount { get; set; }
+        public Currency Currency { get; set; }
 
         // Navigation Properties
         public Guid ClubId { get; set; }

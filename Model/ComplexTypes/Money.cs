@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ComplexTypes
 {
-    [ComplexType]
+    [NotMapped]
     public class Money
     {
         public decimal Amount { get; set; }
