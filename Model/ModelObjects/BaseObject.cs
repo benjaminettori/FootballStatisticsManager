@@ -8,8 +8,7 @@ namespace FSM.Model.ModelObjects
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
-        public Guid UserId { get; set; }
-        [ForeignKey("UserId")]
+        public Guid UserId { get; set; }        
         public User User { get; set; }
 
         public DateTime Created { get; set; }

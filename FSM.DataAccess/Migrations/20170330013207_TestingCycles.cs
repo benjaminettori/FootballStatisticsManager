@@ -4,10 +4,18 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FSM.DataAccess.Migrations
 {
-    public partial class UpdateModelStats : Migration
+    public partial class TestingCycles : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Country_User_UserId",
+                table: "Country");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_League_User_UserId",
+                table: "League");
+
             migrationBuilder.RenameColumn(
                 name: "UserId",
                 table: "User",
@@ -58,7 +66,6 @@ namespace FSM.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    CountryId = table.Column<Guid>(nullable: false),
                     Created = table.Column<DateTime>(nullable: false),
                     LastUpdated = table.Column<DateTime>(nullable: false),
                     LeagueId = table.Column<Guid>(nullable: false),
@@ -71,12 +78,6 @@ namespace FSM.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Club", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Club_Country_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Country",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Club_League_LeagueId",
                         column: x => x.LeagueId,
                         principalTable: "League",
@@ -87,7 +88,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,7 +115,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -143,7 +144,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -166,7 +167,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -199,7 +200,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -239,7 +240,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -268,7 +269,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -311,7 +312,7 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -341,17 +342,12 @@ namespace FSM.DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_League_CountryId",
                 table: "League",
-                column: "CountryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Club_CountryId",
-                table: "Club",
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
@@ -450,18 +446,42 @@ namespace FSM.DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.AddForeignKey(
+                name: "FK_Country_User_UserId",
+                table: "Country",
+                column: "UserId",
+                principalTable: "User",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
                 name: "FK_League_Country_CountryId",
                 table: "League",
                 column: "CountryId",
                 principalTable: "Country",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_League_User_UserId",
+                table: "League",
+                column: "UserId",
+                principalTable: "User",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
+                name: "FK_Country_User_UserId",
+                table: "Country");
+
+            migrationBuilder.DropForeignKey(
                 name: "FK_League_Country_CountryId",
+                table: "League");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_League_User_UserId",
                 table: "League");
 
             migrationBuilder.DropTable(
@@ -529,6 +549,22 @@ namespace FSM.DataAccess.Migrations
                 name: "Id",
                 table: "Country",
                 newName: "CountryId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Country_User_UserId",
+                table: "Country",
+                column: "UserId",
+                principalTable: "User",
+                principalColumn: "UserId",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_League_User_UserId",
+                table: "League",
+                column: "UserId",
+                principalTable: "User",
+                principalColumn: "UserId",
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }

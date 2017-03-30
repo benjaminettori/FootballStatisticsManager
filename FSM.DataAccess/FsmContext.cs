@@ -1,5 +1,6 @@
 ﻿using FSM.Model.ModelObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace FSM.DataAccess
 {
@@ -23,7 +24,18 @@ namespace FSM.DataAccess
         public DbSet<StatisticalCategory> StatisticalCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {            
-        }        
+        {
+            modelBuilder.Entity<Club>().HasOne(c => c.User).WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<League>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Country>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PlayerAttribute>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Player>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PlayerContract>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PlayerContractClause>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PlayerPosition>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<PlayerStatistic>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Season>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<StatisticalCategory>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

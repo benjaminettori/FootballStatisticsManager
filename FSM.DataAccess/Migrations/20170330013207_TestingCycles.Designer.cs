@@ -9,8 +9,8 @@ using FSM.Model.Enums;
 namespace FSM.DataAccess.Migrations
 {
     [DbContext(typeof(FsmContext))]
-    [Migration("20170329015943_UpdateModelStats")]
-    partial class UpdateModelStats
+    [Migration("20170330013207_TestingCycles")]
+    partial class TestingCycles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,8 +22,6 @@ namespace FSM.DataAccess.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("CountryId");
 
                     b.Property<DateTime>("Created");
 
@@ -41,8 +39,6 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
 
                     b.HasIndex("LeagueId");
 
@@ -357,11 +353,6 @@ namespace FSM.DataAccess.Migrations
 
             modelBuilder.Entity("FSM.Model.ModelObjects.Club", b =>
                 {
-                    b.HasOne("FSM.Model.ModelObjects.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("FSM.Model.ModelObjects.League", "League")
                         .WithMany()
                         .HasForeignKey("LeagueId")
@@ -369,16 +360,14 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.Country", b =>
                 {
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.League", b =>
@@ -390,16 +379,14 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.Player", b =>
                 {
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.PlayerAttribute", b =>
@@ -411,8 +398,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.PlayerContract", b =>
@@ -429,8 +415,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.PlayerContractClause", b =>
@@ -442,8 +427,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.PlayerPosition", b =>
@@ -455,8 +439,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.PlayerStatistic", b =>
@@ -478,8 +461,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.Season", b =>
@@ -491,16 +473,14 @@ namespace FSM.DataAccess.Migrations
 
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("FSM.Model.ModelObjects.StatisticalCategory", b =>
                 {
                     b.HasOne("FSM.Model.ModelObjects.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
         }
     }

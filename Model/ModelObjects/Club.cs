@@ -13,13 +13,10 @@ namespace FSM.Model.ModelObjects
         public string SixLetterName { get; set; }
         public string NickName { get; set; }
 
-        // Foreign Keys
-        public Guid CountryId { get; set; }
+        // Foreign Keys        
         public Guid LeagueId { get; set; }
 
-        // Navigation Properties
-        [ForeignKey("CountryId")]
-        public Country Country { get; set; }
+        // Navigation Properties        
         [ForeignKey("LeagueId")]
         public League League { get; set; }
         
