@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("Season")]
-    public class Season : BaseObject
+    public class Season : UserBaseObject
     {       
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

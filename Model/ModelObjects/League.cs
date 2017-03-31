@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("League")]
-    public class League : BaseObject
+    public class League : UserBaseObject
     {        
         public string Name { get; set; }
         public int Tier { get; set; }

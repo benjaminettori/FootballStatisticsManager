@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("PlayerContractClause")]
-    public class PlayerContractClause : BaseObject
+    public class PlayerContractClause : UserBaseObject
     {
         [Required]
         public PlayerContractClauseType ClauseType { get; set; }

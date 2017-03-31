@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("Club")]
-    public class Club : BaseObject
+    public class Club : UserBaseObject
     {       
         [Required]
         public string Name { get; set; }

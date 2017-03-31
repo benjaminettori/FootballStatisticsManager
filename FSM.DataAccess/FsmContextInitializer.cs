@@ -2,6 +2,7 @@
 using FSM.Model.ModelObjects;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 
 namespace FSM.DataAccess
@@ -391,8 +392,8 @@ namespace FSM.DataAccess
                     CategoryCode = "Red",
                     Format = CategoryFormat.Number
                 });
-
-                context.SaveChanges();
+                
+                context.SaveChangesWithDate();
             }
         }
     }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
-    public class PlayerPosition : BaseObject
+    public class PlayerPosition : UserBaseObject
     {
         public PositionRating Rating { get; set; }
         public DateTime OnDate { get; set; }

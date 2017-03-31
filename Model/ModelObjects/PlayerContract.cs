@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("PlayerContract")]
-    public class PlayerContract : BaseObject
+    public class PlayerContract : UserBaseObject
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

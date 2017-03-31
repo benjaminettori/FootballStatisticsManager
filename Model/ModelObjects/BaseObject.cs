@@ -6,10 +6,7 @@ namespace FSM.Model.ModelObjects
     public class BaseObject
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
-        public Guid UserId { get; set; }        
-        public User User { get; set; }
+        public Guid Id { get; set; }        
 
         public DateTime Created { get; set; }
         public DateTime LastUpdated { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FSM.Model.ModelObjects
 {
     [Table("Country")]
-    public class Country : BaseObject
+    public class Country : UserBaseObject
     {       
         public string Name { get; set; }
         public long Population { get; set; }  

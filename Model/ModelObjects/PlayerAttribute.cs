@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
-    public class PlayerAttribute : BaseObject
+    public class PlayerAttribute : UserBaseObject
     {
         public string AttributeName { get; set; }
         public string AttributeCode { get; set; }

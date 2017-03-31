@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FSM.Model.ModelObjects
 {
-    public class PlayerStatistic : BaseObject
+    public class PlayerStatistic : UserBaseObject
     {
         public double Value { get; set; }
         public DateTime OnDate { get; set; }

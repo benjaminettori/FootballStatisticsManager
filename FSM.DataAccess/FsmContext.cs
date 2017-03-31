@@ -1,6 +1,8 @@
 ﻿using FSM.Model.ModelObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System;
+using System.Linq;
 
 namespace FSM.DataAccess
 {
@@ -23,6 +25,29 @@ namespace FSM.DataAccess
         public DbSet<PlayerStatistic> PlayerStatistics { get; set; }
         public DbSet<StatisticalCategory> StatisticalCategories { get; set; }
 
+
+        public int SaveChangesWithDate()
+        {
+            var addedEntities = ChangeTracker.Entries().Where(e => e.State == EntityState.Added).ToList();
+
+            foreach(var added in addedEntities)
+            {
+                var baseEntity = (BaseObject)added.Entity;
+                baseEntity.Created = DateTime.UtcNow;
+                baseEntity.LastUpdated = DateTime.UtcNow;
+            }
+
+            var updatedEntities = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified).ToList();
+            
+            foreach(var updated in updatedEntities)
+            {
+                var baseEntity = (BaseObject)updated.Entity;
+                baseEntity.LastUpdated = DateTime.UtcNow;
+            }
+
+            return SaveChanges();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Club>().HasOne(c => c.User).WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict);
@@ -34,8 +59,7 @@ namespace FSM.DataAccess
             modelBuilder.Entity<PlayerContractClause>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<PlayerPosition>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<PlayerStatistic>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Season>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<StatisticalCategory>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Season>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);           
         }
     }
 }
