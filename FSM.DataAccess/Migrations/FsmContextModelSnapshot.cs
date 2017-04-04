@@ -22,9 +22,9 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<Guid>("LeagueId");
 
@@ -51,9 +51,9 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<string>("Name");
 
@@ -75,9 +75,9 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<Guid>("CountryId");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<string>("Name");
 
@@ -99,7 +99,7 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<DateTime>("DateOfBirth");
 
@@ -109,7 +109,7 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<int>("LeftFootRating");
 
@@ -137,11 +137,11 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<string>("AttributeName");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<bool>("Current");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<DateTime>("OnDate");
 
@@ -171,13 +171,13 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<Guid>("ClubId");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<int>("Currency");
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<Guid>("PlayerId");
 
@@ -209,9 +209,9 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<Guid>("ContractId");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<decimal?>("SecondClauseValue");
 
@@ -231,9 +231,9 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<DateTime>("OnDate");
 
@@ -259,9 +259,9 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<Guid>("CategoryId");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<DateTime>("OnDate");
 
@@ -291,11 +291,11 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.Property<Guid>("LeagueId");
 
@@ -321,11 +321,11 @@ namespace FSM.DataAccess.Migrations
 
                     b.Property<string>("CategoryName");
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<int>("Format");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.HasKey("Id");
 
@@ -337,13 +337,13 @@ namespace FSM.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Created");
+                    b.Property<DateTimeOffset>("Created");
 
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
 
-                    b.Property<DateTime>("LastUpdated");
+                    b.Property<DateTimeOffset>("LastUpdated");
 
                     b.HasKey("Id");
 

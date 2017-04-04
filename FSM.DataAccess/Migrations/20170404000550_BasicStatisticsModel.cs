@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FSM.DataAccess.Migrations
 {
-    public partial class TestingCycles : Migration
+    public partial class BasicStatisticsModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,43 +31,55 @@ namespace FSM.DataAccess.Migrations
                 table: "Country",
                 newName: "Id");
 
+            migrationBuilder.AddColumn<DateTimeOffset>(
+                name: "Created",
+                table: "User",
+                nullable: false,
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
+
+            migrationBuilder.AddColumn<DateTimeOffset>(
+                name: "LastUpdated",
+                table: "User",
+                nullable: false,
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
+
             migrationBuilder.AddColumn<Guid>(
                 name: "CountryId",
                 table: "League",
                 nullable: false,
                 defaultValue: new Guid("00000000-0000-0000-0000-000000000000"));
 
-            migrationBuilder.AddColumn<DateTime>(
+            migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "Created",
                 table: "League",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
 
-            migrationBuilder.AddColumn<DateTime>(
+            migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "LastUpdated",
                 table: "League",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
 
-            migrationBuilder.AddColumn<DateTime>(
+            migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "Created",
                 table: "Country",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
 
-            migrationBuilder.AddColumn<DateTime>(
+            migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "LastUpdated",
                 table: "Country",
                 nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+                defaultValue: new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)));
 
             migrationBuilder.CreateTable(
                 name: "Club",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     LeagueId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     NickName = table.Column<string>(nullable: true),
@@ -96,12 +108,12 @@ namespace FSM.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     Height = table.Column<int>(nullable: false),
                     LastName = table.Column<string>(nullable: true),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     LeftFootRating = table.Column<int>(nullable: false),
                     RightFootRating = table.Column<int>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
@@ -123,9 +135,9 @@ namespace FSM.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     LeagueId = table.Column<Guid>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false)
@@ -154,20 +166,13 @@ namespace FSM.DataAccess.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     CategoryCode = table.Column<string>(nullable: true),
                     CategoryName = table.Column<string>(nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
                     Format = table.Column<int>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StatisticalCategories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_StatisticalCategories_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -178,9 +183,9 @@ namespace FSM.DataAccess.Migrations
                     Attribute = table.Column<int>(nullable: false),
                     AttributeCode = table.Column<string>(nullable: true),
                     AttributeName = table.Column<string>(nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
                     Current = table.Column<bool>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     OnDate = table.Column<DateTime>(nullable: false),
                     PlayerId = table.Column<Guid>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
@@ -211,10 +216,10 @@ namespace FSM.DataAccess.Migrations
                     Active = table.Column<bool>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
                     ClubId = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
                     Currency = table.Column<int>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     PlayerId = table.Column<Guid>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
                     Type = table.Column<int>(nullable: false),
@@ -248,8 +253,8 @@ namespace FSM.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     OnDate = table.Column<DateTime>(nullable: false),
                     PlayerId = table.Column<Guid>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
@@ -278,8 +283,8 @@ namespace FSM.DataAccess.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CategoryId = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     OnDate = table.Column<DateTime>(nullable: false),
                     PlayerId = table.Column<Guid>(nullable: false),
                     SeasonId = table.Column<Guid>(nullable: false),
@@ -323,8 +328,8 @@ namespace FSM.DataAccess.Migrations
                     ClauseType = table.Column<int>(nullable: false),
                     ClauseValue = table.Column<decimal>(nullable: false),
                     ContractId = table.Column<Guid>(nullable: false),
-                    Created = table.Column<DateTime>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
+                    Created = table.Column<DateTimeOffset>(nullable: false),
+                    LastUpdated = table.Column<DateTimeOffset>(nullable: false),
                     SecondClauseValue = table.Column<decimal>(nullable: true),
                     UserId = table.Column<Guid>(nullable: false)
                 },
@@ -440,11 +445,6 @@ namespace FSM.DataAccess.Migrations
                 table: "Season",
                 column: "UserId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_StatisticalCategories_UserId",
-                table: "StatisticalCategories",
-                column: "UserId");
-
             migrationBuilder.AddForeignKey(
                 name: "FK_Country_User_UserId",
                 table: "Country",
@@ -514,6 +514,14 @@ namespace FSM.DataAccess.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_League_CountryId",
                 table: "League");
+
+            migrationBuilder.DropColumn(
+                name: "Created",
+                table: "User");
+
+            migrationBuilder.DropColumn(
+                name: "LastUpdated",
+                table: "User");
 
             migrationBuilder.DropColumn(
                 name: "CountryId",

@@ -33,8 +33,10 @@ namespace FSM.DataAccess
             foreach(var added in addedEntities)
             {
                 var baseEntity = (BaseObject)added.Entity;
-                baseEntity.Created = DateTime.UtcNow;
-                baseEntity.LastUpdated = DateTime.UtcNow;
+                DateTime created = DateTime.UtcNow;
+                DateTime.SpecifyKind(created, DateTimeKind.Utc);
+                baseEntity.Created = created;
+                baseEntity.LastUpdated = created;
             }
 
             var updatedEntities = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified).ToList();
@@ -42,7 +44,9 @@ namespace FSM.DataAccess
             foreach(var updated in updatedEntities)
             {
                 var baseEntity = (BaseObject)updated.Entity;
-                baseEntity.LastUpdated = DateTime.UtcNow;
+                DateTime lastUpdate = DateTime.UtcNow;
+                DateTime.SpecifyKind(lastUpdate, DateTimeKind.Utc);
+                baseEntity.LastUpdated = lastUpdate;
             }
 
             return SaveChanges();

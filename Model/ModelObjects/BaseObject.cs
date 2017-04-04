@@ -8,7 +8,7 @@ namespace FSM.Model.ModelObjects
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }        
 
-        public DateTime Created { get; set; }
-        public DateTime LastUpdated { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset LastUpdated { get; set; }
     }
 }
