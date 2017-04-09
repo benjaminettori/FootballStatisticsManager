@@ -54,6 +54,7 @@ namespace FSM.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Foreign Key Cascading Delete
             modelBuilder.Entity<Club>().HasOne(c => c.User).WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<League>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Country>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
@@ -63,7 +64,10 @@ namespace FSM.DataAccess
             modelBuilder.Entity<PlayerContractClause>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<PlayerPosition>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<PlayerStatistic>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Season>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);           
+            modelBuilder.Entity<Season>().HasOne(l => l.User).WithMany().HasForeignKey(l => l.UserId).OnDelete(DeleteBehavior.Restrict);
+
+            // Alternate Keys
+            modelBuilder.Entity<User>().HasAlternateKey(c => c.UserName);
         }
     }
 }

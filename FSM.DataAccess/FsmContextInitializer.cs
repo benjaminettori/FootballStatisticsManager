@@ -14,8 +14,22 @@ namespace FSM.DataAccess
             using (var context = builder.ApplicationServices.GetRequiredService<FsmContext>())
             {
                 context.Database.EnsureCreated();
+
+                if(context.Users.Any())
+                {
+                    return;
+                }
+
+                context.Users.Add(new User
+                {
+                    FirstName = "Benjamin",
+                    LastName = "Ettori",
+                    UserName = "benjamin.ettori"
+                });
+
                 if(context.StatisticalCategories.Any())
                 {
+                    context.SaveChangesWithDate();
                     return;
                 }
 

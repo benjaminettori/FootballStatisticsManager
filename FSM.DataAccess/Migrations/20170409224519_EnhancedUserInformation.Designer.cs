@@ -9,9 +9,10 @@ using FSM.Model.Enums;
 namespace FSM.DataAccess.Migrations
 {
     [DbContext(typeof(FsmContext))]
-    partial class FsmContextModelSnapshot : ModelSnapshot
+    [Migration("20170409224519_EnhancedUserInformation")]
+    partial class EnhancedUserInformation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
