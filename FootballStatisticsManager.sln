@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSM.Model", "Model\FSM.Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSM.DataAccess", "FSM.DataAccess\FSM.DataAccess.csproj", "{45F9570A-1B86-4E6C-9C71-DAC3222547E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSM.DomainModel", "..\FSM.DomainModel\FSM.DomainModel.csproj", "{DCE146B9-9E5E-4CC1-9EE0-022ED3D2C6CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSM.DomainModel", "FSM.DomainModel\FSM.DomainModel.csproj", "{A929228A-6E3E-49A8-BBCF-597284534BE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{45F9570A-1B86-4E6C-9C71-DAC3222547E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45F9570A-1B86-4E6C-9C71-DAC3222547E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45F9570A-1B86-4E6C-9C71-DAC3222547E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCE146B9-9E5E-4CC1-9EE0-022ED3D2C6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCE146B9-9E5E-4CC1-9EE0-022ED3D2C6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCE146B9-9E5E-4CC1-9EE0-022ED3D2C6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCE146B9-9E5E-4CC1-9EE0-022ED3D2C6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A929228A-6E3E-49A8-BBCF-597284534BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A929228A-6E3E-49A8-BBCF-597284534BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A929228A-6E3E-49A8-BBCF-597284534BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A929228A-6E3E-49A8-BBCF-597284534BE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
