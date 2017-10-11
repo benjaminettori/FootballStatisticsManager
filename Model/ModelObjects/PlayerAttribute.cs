@@ -18,6 +18,7 @@ namespace FSM.Model.ModelObjects
         public Player Player { get; set; }
 
         // TODO: Write these
+        // Used when reading in data from csv
         private void PopulateAttributeName() { }
         private void PopulateAttributeCode() { }
         private void PopulateAttributeFromCode() { }
